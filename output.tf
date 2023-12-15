@@ -9,5 +9,5 @@ output "instance_Ip" {
   
 }
 output "snap_id" {
-    value = aws_ebs_snapshot.jenkins_snapshot.id.0
+    value = aws_ebs_snapshot.jenkins_snapshot.id
 }
