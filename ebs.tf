@@ -10,7 +10,7 @@ resource "aws_ebs_volume" "docker_data" {
 
 depends_on = [ data.aws_instance.get-az-name]
 }
-*/
+
 
 resource "aws_ebs_volume" "docker_data" {
     
@@ -49,3 +49,5 @@ resource "aws_ebs_snapshot_copy" "jenkins_snap" {
     }
   depends_on = [ aws_ebs_volume.docker_data, aws_volume_attachment.ebs_att,aws_ebs_snapshot.jenkins_snapshot]
 }
+
+*/
