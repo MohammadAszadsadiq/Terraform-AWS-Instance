@@ -8,10 +8,10 @@ resource "aws_ebs_snapshot" "jenkins_snapshot" {
 }
 
 
+
 resource "aws_ebs_snapshot_copy" "jenkins_snap" {
     source_snapshot_id = aws_ebs_snapshot.jenkins_snapshot.id
     source_region = var.region
-    destination_region = "ap-south-1"
     tags= {
         Name = "jenkins_snap"
     }
