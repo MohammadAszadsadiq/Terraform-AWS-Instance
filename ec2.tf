@@ -5,7 +5,8 @@ resource "aws_instance" "jenkins_server" {
     key_name = "sbfsajbj"
     count = 3
     tags = {
-      Name="jenkins_machine-${count.index + 1}"
+      //Name="jenkins_machine-${count.index + 1}"
+       Name = "jenkins_machine"
     }
     user_data=file("install.sh")
 }
