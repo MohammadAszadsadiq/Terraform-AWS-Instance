@@ -1,4 +1,5 @@
 # Resource creation for jenkins installation
+/*
 resource "aws_instance" "jenkins_server" { 
     ami = "ami-06aa3f7caf3a30282"
     instance_type = "${var.instance_size}"
@@ -33,3 +34,4 @@ resource "null_resource" "perform_ebs_volume" {
     ]
   }
 }
+*/
