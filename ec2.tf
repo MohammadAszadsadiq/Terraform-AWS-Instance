@@ -11,7 +11,7 @@ resource "aws_instance" "jenkins_server" {
     user_data=file("install.sh")
 }
 
-resource "null_resource" "perform_ebs_volumes" {
+resource "null_resource" "perform_ebs_volume" {
 
 
   # Connection Block for Provisioners to connect to EC2 Instance
@@ -24,12 +24,12 @@ resource "null_resource" "perform_ebs_volumes" {
  provisioner "remote-exec" {
     inline = [
       //"sudo chown -R jenkins:jenkins /var/lib/jenkins",
-      "sudo systemctl stop nginx",
+     // "sudo systemctl stop nginx",
       "sudo lsblk",
-      "sudo mkfs -t  ext4 /dev/xvdh",
-      "sudo mount /dev/xvdh /usr/share/nginx/html",
-      "sudo systemctl start nginx",
-      "sudo lsblk"
+     // "sudo mkfs -t  ext4 /dev/xvdh",
+     // "sudo mount /dev/xvdh /usr/share/nginx/html",
+     // "sudo systemctl start nginx",
+     // "sudo lsblk"
 
     ]
   }
