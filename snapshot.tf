@@ -6,3 +6,14 @@ resource "aws_ebs_snapshot" "jenkins_snapshot" {
   }
   depends_on = [aws_ebs_volume.docker_data, aws_volume_attachment.ebs_att]
 }
+
+
+resource "aws_ebs_snapshot_copy" "jenkins_snap" {
+    source_snapshot_id = aws_ebs_snapshot.jenkins_snapshot.id
+    source_region = var.region
+    destination_region = "ap-south-1"
+    tags= {
+        Name = "jenkins_snap"
+    }
+  depends_on = [ aws_ebs_volume.docker_data, aws_volume_attachment.ebs_att,aws_ebs_snapshot.jenkins_snapshot]
+}
