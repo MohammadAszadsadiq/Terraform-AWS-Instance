@@ -11,7 +11,7 @@ resource "aws_instance" "jenkins_server" {
     user_data=file("install.sh")
 }
 
-resource "null_resource" "perform_ebs_volume" {
+resource "null_resource" "perform_ebs_volumes" {
 
 
   # Connection Block for Provisioners to connect to EC2 Instance
