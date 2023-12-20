@@ -63,3 +63,10 @@ resource "aws_s3_bucket_policy" "hosting_bucket_policy" {
     })
     depends_on = [ aws_s3_bucket_public_access_block.S3BucketPublicAccess ]
 }
+resource "aws_s3_bucket_object" "upload_files_bucket" {
+   for_each = fileset("./staticfiles/" ,"**")
+  bucket = aws_s3_bucket.dev-data.id
+  key=each.value
+  source="./staticfiles/${each.value}"
+  
+}
